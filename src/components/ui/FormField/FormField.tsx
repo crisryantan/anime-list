@@ -17,27 +17,36 @@ export const FormField = memo(({
   value,
   error = '',
   onChange
-}: FormFieldProps) => (
-  <Field.Root invalid={!!error}>
-    <Field.Label color="primary.700">{label}</Field.Label>
-    <Input
-      name={name}
-      value={value}
-      onChange={onChange}
-      placeholder={`Enter your ${label.toLowerCase()}`}
-      borderColor="primary.100"
-      _focus={{ borderColor: 'primary.500', boxShadow: '0 0 0 1px var(--chakra-colors-primary-500)' }}
-      _placeholder={{ color: 'gray.400' }}
-      color="primary.700"
-      bg="white"
-      p={2}
-    />
-    {error && (
-      <Field.ErrorText>
-        {error}
-      </Field.ErrorText>
-    )}
-  </Field.Root>
-));
+}: FormFieldProps) => {
+  // Generate unique id for input-label association
+  const id = `field-${name}`;
+  
+  return (
+    <Field.Root invalid={!!error}>
+      <Field.Label htmlFor={id} color="primary.700">{label}</Field.Label>
+      <Input
+        id={id}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={`Enter your ${label.toLowerCase()}`}
+        borderColor="primary.100"
+        _focus={{ borderColor: 'primary.500', boxShadow: '0 0 0 1px var(--chakra-colors-primary-500)' }}
+        _placeholder={{ color: 'gray.400' }}
+        color="primary.700"
+        bg="white"
+        p={2}
+        aria-describedby={error ? `${id}-error` : undefined}
+        aria-invalid={!!error}
+        required
+      />
+      {error && (
+        <Field.ErrorText id={`${id}-error`}>
+          {error}
+        </Field.ErrorText>
+      )}
+    </Field.Root>
+  );
+});
 
 FormField.displayName = 'FormField'; 

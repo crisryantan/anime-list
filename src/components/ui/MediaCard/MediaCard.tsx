@@ -27,6 +27,13 @@ export const MediaCard = ({ media, onClick }: MediaCardProps) => {
   const score = media.averageScore ? `${media.averageScore}%` : 'N/A';
   const imageSrc = imageError ? '/placeholder-image.png' : media.coverImage.large;
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <Card.Root
       w="full"
@@ -44,6 +51,10 @@ export const MediaCard = ({ media, onClick }: MediaCardProps) => {
       }}
       bg="white"
       onClick={onClick}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details of ${title}`}
     >
       <Box pos="relative" pt="130%" overflow="hidden">
         <Image
@@ -56,6 +67,7 @@ export const MediaCard = ({ media, onClick }: MediaCardProps) => {
           w="full"
           h="full"
           objectFit="cover"
+          loading="lazy"
         />
       </Box>
 

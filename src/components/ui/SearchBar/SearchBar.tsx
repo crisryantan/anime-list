@@ -30,6 +30,10 @@ export function SearchBar({
   onSortChange,
   sortOptions 
 }: SearchBarProps) {
+  // Create unique IDs for accessibility
+  const searchInputId = "anime-search-input";
+  const sortSelectId = "sort-select";
+  
   return (
     <Flex 
       mb={{ base: 4, md: 6 }} 
@@ -44,6 +48,8 @@ export function SearchBar({
       align={{ base: "stretch", md: "center" }}
     >
       <Input
+        id={searchInputId}
+        name="anime-search"
         placeholder="Search anime..."
         value={searchTerm}
         onChange={onSearchChange}
@@ -54,6 +60,7 @@ export function SearchBar({
         _placeholder={{ color: 'gray.400' }}
         borderColor="primary.200"
         _focus={{ borderColor: "primary.400", boxShadow: "0 0 0 1px var(--chakra-colors-primary-400)" }}
+        aria-label="Search anime"
       />
       
       <Select.Root
@@ -62,8 +69,9 @@ export function SearchBar({
         width="200px"
         value={[sortValue]}
         onValueChange={(detail) => onSortChange(detail.value[0] as MediaSort)}
+        id={sortSelectId}
       >
-        <Select.HiddenSelect />
+        <Select.HiddenSelect aria-label="Sort anime by" />
         <Select.Control>
           <Select.Trigger
             bg="white"

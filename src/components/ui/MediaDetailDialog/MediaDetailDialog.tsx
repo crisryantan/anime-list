@@ -7,7 +7,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { Media } from '@/types/anilist';
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 
 import { useLockBodyScroll } from '@/hooks/useLockBodyScroll';
 
@@ -39,19 +39,41 @@ export const MediaDetailDialog = ({ media, isOpen, onClose }: MediaDetailDialogP
   const formattedDescription = useMemo(() => {
     return formatDescription(media?.description || '');
   }, [media?.description]);
+
+  // Ensure focus is trapped and ESC key closes the dialog
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isOpen && e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
   
   if (!media) return null;
   
   return (
-    <Dialog.Root open={isOpen} onOpenChange={() => onClose()} placement="center">
+    <Dialog.Root 
+      open={isOpen} 
+      onOpenChange={() => onClose()} 
+      placement="center"
+    >
       <Portal>
         <Dialog.Backdrop bg="blackAlpha.600" />
         <Dialog.Positioner>
-          <Dialog.Content {...DIALOG_STYLES.content}>
+          <Dialog.Content 
+            {...DIALOG_STYLES.content}
+            aria-labelledby="dialog-title"
+            aria-describedby="dialog-description"
+            role="dialog"
+          >
             <DialogHeader title={media.title.romaji} />
             
             <Dialog.Body 
               {...DIALOG_STYLES.body}
+              id="dialog-description"
             >
               <Box 
                 display="flex" 
@@ -67,6 +89,7 @@ export const MediaDetailDialog = ({ media, isOpen, onClose }: MediaDetailDialogP
                     width="full"
                     objectFit="cover"
                     height="auto"
+                    loading="lazy"
                   />
                 </Box>
                 

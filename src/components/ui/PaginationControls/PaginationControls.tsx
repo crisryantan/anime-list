@@ -5,6 +5,7 @@ import {
   ButtonGroup,
   IconButton,
   Pagination,
+  VisuallyHidden,
 } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import React from 'react';
@@ -23,25 +24,32 @@ export function PaginationControls({ page, totalPages, onPageChange }: Paginatio
         page={page}
         pageSize={1}
         onPageChange={(e) => onPageChange(e.page)}
+        aria-label="Pagination navigation"
       >
-        <ButtonGroup variant="outline" size="sm">
+        <VisuallyHidden>
+          Page {page} of {totalPages}
+        </VisuallyHidden>
+        
+        <ButtonGroup variant="outline" size="sm" role="group" aria-label="Pagination controls">
           <Pagination.PrevTrigger asChild>
             <IconButton 
               aria-label="Previous page"
               colorScheme="primary"
+              disabled={page <= 1}
             >
               <ChevronLeftIcon />
             </IconButton>
           </Pagination.PrevTrigger>
 
           <Pagination.Items 
-            render={(page) => (
+            render={(pageItem) => (
               <IconButton
-                aria-label={`Page ${page.value}`}
+                aria-label={`Page ${pageItem.value}`}
+                aria-current={pageItem.value === page ? "page" : undefined}
                 variant={{ base: "outline", _selected: "solid" }}
                 colorScheme="primary"
               >
-                {page.value}
+                {pageItem.value}
               </IconButton>
             )}
           />
@@ -50,6 +58,7 @@ export function PaginationControls({ page, totalPages, onPageChange }: Paginatio
             <IconButton 
               aria-label="Next page"
               colorScheme="primary"
+              disabled={page >= totalPages}
             >
               <ChevronRightIcon />
             </IconButton>
