@@ -11,8 +11,9 @@ export interface MediaGridProps {
 export function MediaGrid({ children, ariaLabel = "Media content grid" }: MediaGridProps) {
   return (
     <SimpleGrid 
-      columns={{ base: 1, sm: 2, md: 3, lg: 4 }} 
+      columns={{ base: 1, sm: 2, md: 4, lg: 6 }} 
       gap={6}
+      justifyItems="center"
       role="grid"
       aria-label={ariaLabel}
     >

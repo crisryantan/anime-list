@@ -25,7 +25,7 @@ import { useUrlParams } from '@/hooks/useUrlParams';
 import { useMediaSortOptions } from '@/hooks/useMediaSortOptions';
 
 export function InformationPage() {
-  const [perPage] = useState(8);
+  const [perPage] = useState(12);
   const sortOptions = useMediaSortOptions();
   const { open: isOpen, onOpen, onClose } = useDisclosure();
   const [selectedMedia, setSelectedMedia] = useState<Media | null>(null);
