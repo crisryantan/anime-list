@@ -6,8 +6,8 @@ import {
   IconButton,
   Pagination,
   VisuallyHidden,
+  Icon,
 } from '@chakra-ui/react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import React from 'react';
 
 export interface PaginationControlsProps {
@@ -37,7 +37,11 @@ export function PaginationControls({ page, totalPages, onPageChange }: Paginatio
               colorScheme="primary"
               disabled={page <= 1}
             >
-              <ChevronLeftIcon />
+              <Icon>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+              </Icon>
             </IconButton>
           </Pagination.PrevTrigger>
 
@@ -60,7 +64,11 @@ export function PaginationControls({ page, totalPages, onPageChange }: Paginatio
               colorScheme="primary"
               disabled={page >= totalPages}
             >
-              <ChevronRightIcon />
+              <Icon>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                </svg>
+              </Icon>
             </IconButton>
           </Pagination.NextTrigger>
         </ButtonGroup>

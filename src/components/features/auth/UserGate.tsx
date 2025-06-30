@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, FormEvent } from 'react';
+import { useState, useCallback, FormEvent, useEffect } from 'react';
 import { useUser } from '@/context/User';
 import { ProfileModal } from '@/components/ui/ProfileModal';
 
@@ -21,6 +21,16 @@ export function UserGate({ children }: { children: React.ReactNode }) {
     username: '',
     jobTitle: '',
   });
+
+  // Ensure form values are updated when userInfo changes or when entering edit mode
+  useEffect(() => {
+    if (isEditing) {
+      setFormValues({
+        username: userInfo.username,
+        jobTitle: userInfo.jobTitle,
+      });
+    }
+  }, [isEditing, userInfo]);
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

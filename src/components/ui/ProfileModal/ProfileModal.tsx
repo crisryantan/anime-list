@@ -19,6 +19,7 @@ export function ProfileModal({
   errors,
   onChange,
   onSubmit,
+  isEditing,
   isProfileComplete
 }: ProfileModalProps) {
   return (
@@ -43,12 +44,14 @@ export function ProfileModal({
       >
         <Stack mb={6}>
           <Fieldset.Legend fontSize="lg" fontWeight="bold" color="primary.700">
-            {isProfileComplete
+            {isEditing
               ? 'Edit Profile'
-              : 'Welcome! Please Create Your Profile'}
+              : isProfileComplete
+                ? 'Edit Profile'
+                : 'Welcome! Please Create Your Profile'}
           </Fieldset.Legend>
 
-          {!isProfileComplete && (
+          {!isProfileComplete && !isEditing && (
             <Fieldset.HelperText color="gray.600">
               Please provide your username and job title to continue
             </Fieldset.HelperText>
@@ -63,6 +66,7 @@ export function ProfileModal({
               value={formValues.username}
               error={errors.username}
               onChange={onChange}
+              autoComplete="username"
             />
             <FormField
               label="Job Title"
@@ -70,6 +74,7 @@ export function ProfileModal({
               value={formValues.jobTitle}
               error={errors.jobTitle}
               onChange={onChange}
+              autoComplete="organization-title"
             />
           </Fieldset.Content>
 

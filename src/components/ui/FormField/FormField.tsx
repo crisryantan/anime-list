@@ -9,6 +9,7 @@ export interface FormFieldProps {
   value: string
   error?: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  autoComplete?: string
 }
 
 export const FormField = memo(({
@@ -16,9 +17,9 @@ export const FormField = memo(({
   name,
   value,
   error = '',
-  onChange
+  onChange,
+  autoComplete
 }: FormFieldProps) => {
-  // Generate unique id for input-label association
   const id = `field-${name}`;
   
   return (
@@ -39,6 +40,7 @@ export const FormField = memo(({
         aria-describedby={error ? `${id}-error` : undefined}
         aria-invalid={!!error}
         required
+        autoComplete={autoComplete}
       />
       {error && (
         <Field.ErrorText id={`${id}-error`}>
