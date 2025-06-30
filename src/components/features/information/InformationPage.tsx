@@ -18,6 +18,7 @@ import { PaginationControls } from '@/components/ui/PaginationControls'
 import { LoadingState } from '@/components/ui/LoadingState'
 import { ErrorState } from '@/components/ui/ErrorState'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { MediaDetailDialog } from '@/components/ui/MediaDetailDialog'
 import { useDebounce } from '@/hooks/useDebounce'
 import { useUrlParams } from '@/hooks/useUrlParams'
 import { useMediaSortOptions } from '@/hooks/useMediaSortOptions'
@@ -59,6 +60,11 @@ export function InformationPage() {
     updateFilters({ sort: value })
   }
   
+  const handleMediaClick = (media: Media) => {
+    setSelectedMedia(media)
+    onOpen()
+  }
+  
   const mediaItems = data?.Page.media || []
   const pageInfo = data?.Page.pageInfo
   const totalPages = pageInfo?.lastPage || 1
@@ -83,6 +89,7 @@ export function InformationPage() {
             <MediaCard 
               key={media.id}
               media={media}
+              onClick={() => handleMediaClick(media)}
             />
           ))}
         </MediaGrid>
@@ -116,6 +123,12 @@ export function InformationPage() {
           </Container>
         </Box>
       </Box>
+      
+      <MediaDetailDialog 
+        media={selectedMedia}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
     </UserGate>
   )
 } 
