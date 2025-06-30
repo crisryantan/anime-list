@@ -1,10 +1,18 @@
 import { ApolloClient, InMemoryCache, HttpLink, ApolloLink, from } from '@apollo/client';
 
-const ANILIST_API = 'https://graphql.anilist.co';
+const apiUrl = process.env.NEXT_PUBLIC_ANILIST_API;
+
+if (!apiUrl) {
+  throw new Error('Missing NEXT_PUBLIC_ANILIST_API env variable');
+}
 
 export function createApolloClient() {
+  if (!apiUrl) {
+    throw new Error('Missing NEXT_PUBLIC_ANILIST_API env variable');
+  }
+
   const httpLink = new HttpLink({
-    uri: ANILIST_API,
+    uri: apiUrl,
   });
 
   const authMiddleware = new ApolloLink((operation, forward) => {

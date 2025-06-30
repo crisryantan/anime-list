@@ -1,9 +1,10 @@
 'use client';
 
-import { DocumentNode, OperationVariables, QueryHookOptions, TypedDocumentNode, useQuery } from '@apollo/client';
+import { DocumentNode, TypedDocumentNode, OperationVariables, QueryHookOptions, useQuery } from '@apollo/client';
 import { useUser } from '@/context/User';
 
-// This hook conditionally executes Apollo queries based on user profile state
+// Note: This hook is a wrapper around Apollo's useQuery that automatically skips queries when the user profile
+// is incomplete or still loading. Useful for preventing unnecessary API calls.
 export function useConditionalQuery<TData = any, TVariables extends OperationVariables = OperationVariables>(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options?: QueryHookOptions<TData, TVariables>

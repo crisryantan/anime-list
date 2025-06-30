@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 
+// Note: This hook is a wrapper around useState that persists the state to localStorage.
+// It's used to persist the user profile state across page reloads.
 export function usePersistentState<T>(
 	key: string,
 	initialValue: T

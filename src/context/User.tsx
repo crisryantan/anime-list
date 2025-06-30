@@ -29,6 +29,11 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export function UserProvider({ children }: { children: ReactNode }) {
 	const [isLoading, setIsLoading] = useState(true);
 	const [isEditing, setIsEditing] = useState(false);
+	
+	// Note: Since this is an exercise without a backend API, we're using localStorage 
+	// for state persistence via the usePersistentState hook. While there are risks
+	// associated with modifying localStorage directly, this approach is sufficient
+	// for demonstration purposes.
 	const [userInfo, setUserInfo] = usePersistentState<UserInfo>('userInfo', initialUserInfo);
 	const [isProfileModalOpen, setIsProfileModalOpen] = usePersistentState<boolean>('profileModalOpen', true);
 	
