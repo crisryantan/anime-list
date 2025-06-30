@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { UserGate } from '@/components/features/auth';
 import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { useRouter } from 'next/navigation';
 
 export function HomePage() {
@@ -67,6 +68,7 @@ export function HomePage() {
             </Flex>
           </Container>
         </Box>
+        <Footer />
       </Box>
     </UserGate>
   );

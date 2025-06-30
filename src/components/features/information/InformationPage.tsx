@@ -12,6 +12,7 @@ import { MediaCard } from '@/components/ui/MediaCard';
 import { MediaListResponse, Media } from '@/types/anilist';
 import { UserGate } from '@/components/features/auth';
 import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { SearchBar } from '@/components/ui/SearchBar';
 import { MediaGrid } from '@/components/ui/MediaGrid';
 import { PaginationControls } from '@/components/ui/PaginationControls';
@@ -122,6 +123,7 @@ export function InformationPage() {
             {renderContent()}
           </Container>
         </Box>
+        <Footer />
       </Box>
       
       <MediaDetailDialog 
