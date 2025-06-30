@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { 
   Box, 
@@ -6,17 +6,17 @@ import {
   Text, 
   Flex,
   Button,
-} from '@chakra-ui/react'
-import { UserGate } from '@/components/features/auth'
-import { Header } from '@/components/layout/Header'
-import { useRouter } from 'next/navigation'
+} from '@chakra-ui/react';
+import { UserGate } from '@/components/features/auth';
+import { Header } from '@/components/layout/Header';
+import { useRouter } from 'next/navigation';
 
 export function HomePage() {
-  const router = useRouter()
+  const router = useRouter();
   
   const goToInformationPage = () => {
-    router.push('/information')
-  }
+    router.push('/information');
+  };
   
   return (
     <UserGate>
@@ -69,5 +69,5 @@ export function HomePage() {
         </Box>
       </Box>
     </UserGate>
-  )
+  );
 } 

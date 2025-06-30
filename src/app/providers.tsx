@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { ChakraProvider } from '@chakra-ui/react'
-import { ApolloProvider } from '@apollo/client'
-import { UserProvider } from '@/context/User'
-import system from '../theme'
-import { getApolloClient } from '@/lib/apollo'
+import { ChakraProvider } from '@chakra-ui/react';
+import { ApolloProvider } from '@apollo/client';
+import { UserProvider } from '@/context/User';
+import system from '../theme';
+import { getApolloClient } from '@/lib/apollo';
 
 export function Providers({ children }: { children: React.ReactNode }) {  
   return (
@@ -15,5 +15,5 @@ export function Providers({ children }: { children: React.ReactNode }) {
         </UserProvider>
       </ApolloProvider>
     </ChakraProvider>
-  )
+  );
 } 

@@ -1,24 +1,24 @@
-'use client'
+'use client';
 
 import {
   Dialog,
   Portal,
   Box,
   Image,
-} from '@chakra-ui/react'
-import { Media } from '@/types/anilist'
-import { useMemo } from 'react'
+} from '@chakra-ui/react';
+import { Media } from '@/types/anilist';
+import { useMemo } from 'react';
 
-import { useLockBodyScroll } from '@/hooks/useLockBodyScroll'
+import { useLockBodyScroll } from '@/hooks/useLockBodyScroll';
 
-import { DIALOG_STYLES, LAYOUT_STYLES } from './styles'
+import { DIALOG_STYLES, LAYOUT_STYLES } from './styles';
 
 import {
   DialogHeader,
   InfoBlock,
   DescriptionBox,
   DialogFooter
-} from './'
+} from './';
 
 export interface MediaDetailDialogProps {
   media: Media | null
@@ -27,20 +27,20 @@ export interface MediaDetailDialogProps {
 }
 
 export const formatDescription = (html: string): string => {
-  if (!html) return 'No description available.'
+  if (!html) return 'No description available.';
   
-  return html.replace(/<[^>]*>/g, '')
-} 
+  return html.replace(/<[^>]*>/g, '');
+}; 
 
 export const MediaDetailDialog = ({ media, isOpen, onClose }: MediaDetailDialogProps) => {
   // Prevents body scrolling when the dialog is open
-  useLockBodyScroll(isOpen)
+  useLockBodyScroll(isOpen);
   
   const formattedDescription = useMemo(() => {
-    return formatDescription(media?.description || '')
-  }, [media?.description])
+    return formatDescription(media?.description || '');
+  }, [media?.description]);
   
-  if (!media) return null
+  if (!media) return null;
   
   return (
     <Dialog.Root open={isOpen} onOpenChange={() => onClose()} placement="center">
@@ -87,5 +87,5 @@ export const MediaDetailDialog = ({ media, isOpen, onClose }: MediaDetailDialogP
         </Dialog.Positioner>
       </Portal>
     </Dialog.Root>
-  )
-} 
+  );
+}; 

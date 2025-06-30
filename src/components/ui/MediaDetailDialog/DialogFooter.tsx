@@ -1,5 +1,5 @@
-import { Dialog, Button } from '@chakra-ui/react'
-import { DIALOG_STYLES } from './styles'
+import { Dialog, Button } from '@chakra-ui/react';
+import { DIALOG_STYLES } from './styles';
 
 interface DialogFooterProps {
   onClose: () => void
@@ -17,5 +17,5 @@ export const DialogFooter = ({ onClose }: DialogFooterProps) => {
         Close
       </Button>
     </Dialog.Footer>
-  )
-} 
+  );
+}; 

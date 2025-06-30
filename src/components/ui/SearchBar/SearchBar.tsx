@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { 
   Input,
@@ -6,9 +6,9 @@ import {
   Select,
   Portal,
   ListCollection,
-} from '@chakra-ui/react'
-import { MediaSort } from '@/graphql/anilist'
-import React from 'react'
+} from '@chakra-ui/react';
+import { MediaSort } from '@/graphql/anilist';
+import React from 'react';
 
 interface SortOption {
   label: string;
@@ -95,5 +95,5 @@ export function SearchBar({
         </Portal>
       </Select.Root>
     </Flex>
-  )
+  );
 } 

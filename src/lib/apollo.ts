@@ -1,15 +1,15 @@
-import { ApolloClient, InMemoryCache, HttpLink, ApolloLink, from } from '@apollo/client'
+import { ApolloClient, InMemoryCache, HttpLink, ApolloLink, from } from '@apollo/client';
 
-const ANILIST_API = 'https://graphql.anilist.co'
+const ANILIST_API = 'https://graphql.anilist.co';
 
 export function createApolloClient() {
   const httpLink = new HttpLink({
     uri: ANILIST_API,
-  })
+  });
 
   const authMiddleware = new ApolloLink((operation, forward) => {
-    return forward(operation)
-  })
+    return forward(operation);
+  });
 
   return new ApolloClient({
     link: from([authMiddleware, httpLink]),
@@ -30,14 +30,14 @@ export function createApolloClient() {
         fetchPolicy: 'network-only',
       },
     },
-  })
+  });
 }
 
-let apolloClient: ReturnType<typeof createApolloClient>
+let apolloClient: ReturnType<typeof createApolloClient>;
 
 export function getApolloClient() {
   if (!apolloClient) {
-    apolloClient = createApolloClient()
+    apolloClient = createApolloClient();
   }
-  return apolloClient
+  return apolloClient;
 } 

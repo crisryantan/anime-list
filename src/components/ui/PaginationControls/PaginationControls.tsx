@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
 import { 
   Flex,
   ButtonGroup,
   IconButton,
   Pagination,
-} from '@chakra-ui/react'
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
-import React from 'react'
+} from '@chakra-ui/react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import React from 'react';
 
 export interface PaginationControlsProps {
   page: number
@@ -57,5 +57,5 @@ export function PaginationControls({ page, totalPages, onPageChange }: Paginatio
         </ButtonGroup>
       </Pagination.Root>
     </Flex>
-  )
+  );
 } 

@@ -1,5 +1,5 @@
-import { Box, Text } from '@chakra-ui/react'
-import { TEXT_STYLES, LAYOUT_STYLES } from './styles'
+import { Box, Text } from '@chakra-ui/react';
+import { TEXT_STYLES, LAYOUT_STYLES } from './styles';
 
 interface DescriptionBoxProps {
   description: string
@@ -16,5 +16,5 @@ export const DescriptionBox = ({ description }: DescriptionBoxProps) => {
         {description}
       </Box>
     </Box>
-  )
-} 
+  );
+}; 

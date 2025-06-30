@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { Box, Flex, Button, Text } from '@chakra-ui/react'
-import { useUser } from '@/context/User'
+import { Box, Flex, Button, Text } from '@chakra-ui/react';
+import { useUser } from '@/context/User';
 
 export function Header() {
-	const { userInfo, openProfileModal, isLoading } = useUser()
+	const { userInfo, openProfileModal, isLoading } = useUser();
 	
 	if (isLoading) {
-		return null
+		return null;
 	}
 	
 	return (
@@ -28,5 +28,5 @@ export function Header() {
             </Flex>
         </Flex>
         </Box>
-	)
+	);
 } 

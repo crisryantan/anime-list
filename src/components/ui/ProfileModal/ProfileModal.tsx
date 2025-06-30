@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import { Box, Fieldset, Stack } from '@chakra-ui/react'
-import React, { FormEvent } from 'react'
-import { FormField } from '@/components/ui/FormField'
-import { SubmitButton } from '@/components/ui/SubmitButton'
+import { Box, Fieldset, Stack } from '@chakra-ui/react';
+import React, { FormEvent } from 'react';
+import { FormField } from '@/components/ui/FormField';
+import { SubmitButton } from '@/components/ui/SubmitButton';
 
 export interface ProfileModalProps {
   formValues: { username: string; jobTitle: string }
@@ -77,5 +77,5 @@ export function ProfileModal({
         </form>
       </Fieldset.Root>
     </Box>
-  )
+  );
 } 

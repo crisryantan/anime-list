@@ -1,5 +1,5 @@
-import { Dialog, CloseButton } from '@chakra-ui/react'
-import { DIALOG_STYLES, TEXT_STYLES } from './styles'
+import { Dialog, CloseButton } from '@chakra-ui/react';
+import { DIALOG_STYLES, TEXT_STYLES } from './styles';
 
 interface DialogHeaderProps {
   title: string
@@ -13,5 +13,5 @@ export const DialogHeader = ({ title }: DialogHeaderProps) => {
         <CloseButton size="sm" color="primary.500" _hover={{ color: "primary.700" }} />
       </Dialog.CloseTrigger>
     </Dialog.Header>
-  )
-} 
+  );
+}; 

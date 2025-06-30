@@ -1,4 +1,4 @@
-import { SystemStyleObject } from '@chakra-ui/react'
+import { SystemStyleObject } from '@chakra-ui/react';
 
 export const DIALOG_STYLES = {
   content: {
@@ -42,7 +42,7 @@ export const DIALOG_STYLES = {
     top: "50%",
     transform: "translateY(-50%)"
   } as SystemStyleObject
-}
+};
 
 export const TEXT_STYLES = {
   title: {
@@ -62,7 +62,7 @@ export const TEXT_STYLES = {
     color: "gray.700",
     fontSize: { base: 'xs', md: 'sm' }
   } as SystemStyleObject
-}
+};
 
 export const LAYOUT_STYLES = {
   imageContainer: {
@@ -88,4 +88,4 @@ export const LAYOUT_STYLES = {
     maxH: { base: '25vh', md: 'unset' },
     overflowY: "auto"
   } as SystemStyleObject
-} 
+}; 

@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from '@apollo/client';
 
 export const MEDIA_FRAGMENT = gql`
   fragment MediaFragment on Media {
@@ -23,7 +23,7 @@ export const MEDIA_FRAGMENT = gql`
     seasonYear
     format
   }
-`
+`;
 
 export const GET_ANIME_LIST = gql`
   ${MEDIA_FRAGMENT}
@@ -41,7 +41,7 @@ export const GET_ANIME_LIST = gql`
       }
     }
   }
-`
+`;
 
 export enum MediaSort {
   POPULARITY_DESC = "POPULARITY_DESC",

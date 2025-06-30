@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { Button } from '@chakra-ui/react'
-import React from 'react'
+import { Button } from '@chakra-ui/react';
+import React from 'react';
 
 export interface SubmitButtonProps {
   isProfileComplete: boolean
@@ -18,5 +18,5 @@ export function SubmitButton({ isProfileComplete }: SubmitButtonProps) {
     >
       {isProfileComplete ? 'Update Profile' : 'Create Profile'}
     </Button>
-  )
+  );
 } 

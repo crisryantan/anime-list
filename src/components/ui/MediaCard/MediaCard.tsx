@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
   Card,
@@ -7,9 +7,9 @@ import {
   Text,
   Badge,
   HStack,
-} from '@chakra-ui/react'
-import { Media } from '@/types/anilist'
-import { useState } from 'react'
+} from '@chakra-ui/react';
+import { Media } from '@/types/anilist';
+import { useState } from 'react';
 
 export interface MediaCardProps {
   media: Media
@@ -17,15 +17,15 @@ export interface MediaCardProps {
 }
 
 export const MediaCard = ({ media, onClick }: MediaCardProps) => {
-  const [imageError, setImageError] = useState(false)
+  const [imageError, setImageError] = useState(false);
 
-  const title = media.title.english || media.title.romaji
+  const title = media.title.english || media.title.romaji;
   const description = media.description
     ? media.description.replace(/<[^>]*>/g, '').slice(0, 150) +
       (media.description.length > 150 ? '...' : '')
-    : 'No description available'
-  const score = media.averageScore ? `${media.averageScore}%` : 'N/A'
-  const imageSrc = imageError ? '/placeholder-image.png' : media.coverImage.large
+    : 'No description available';
+  const score = media.averageScore ? `${media.averageScore}%` : 'N/A';
+  const imageSrc = imageError ? '/placeholder-image.png' : media.coverImage.large;
 
   return (
     <Card.Root
@@ -85,5 +85,5 @@ export const MediaCard = ({ media, onClick }: MediaCardProps) => {
         </HStack>
       </Card.Body>
     </Card.Root>
-  )
-} 
+  );
+}; 

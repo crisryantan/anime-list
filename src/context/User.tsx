@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { createContext, useContext, ReactNode, useState, useEffect } from 'react'
-import { usePersistentState } from '@/hooks/usePersistentState'
+import { createContext, useContext, ReactNode, useState, useEffect } from 'react';
+import { usePersistentState } from '@/hooks/usePersistentState';
 
 interface UserInfo {
 	username: string
@@ -22,32 +22,32 @@ interface UserContextType {
 const initialUserInfo: UserInfo = {
 	username: '',
 	jobTitle: '',
-}
+};
 
-const UserContext = createContext<UserContextType | undefined>(undefined)
+const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export function UserProvider({ children }: { children: ReactNode }) {
-	const [isLoading, setIsLoading] = useState(true)
+	const [isLoading, setIsLoading] = useState(true);
 	const [isEditing, setIsEditing] = useState(false);
-	const [userInfo, setUserInfo] = usePersistentState<UserInfo>('userInfo', initialUserInfo)
-	const [isProfileModalOpen, setIsProfileModalOpen] = usePersistentState<boolean>('profileModalOpen', true)
+	const [userInfo, setUserInfo] = usePersistentState<UserInfo>('userInfo', initialUserInfo);
+	const [isProfileModalOpen, setIsProfileModalOpen] = usePersistentState<boolean>('profileModalOpen', true);
 	
 	useEffect(() => {
-		setIsLoading(false)
-	}, [])
+		setIsLoading(false);
+	}, []);
 
-	const isProfileComplete = Boolean(userInfo.username && userInfo.jobTitle)
+	const isProfileComplete = Boolean(userInfo.username && userInfo.jobTitle);
 	
 	const openProfileModal = (isEditing?:boolean) => {
-		setIsProfileModalOpen(true)
-		setIsEditing(isEditing || false)
-	}
+		setIsProfileModalOpen(true);
+		setIsEditing(isEditing || false);
+	};
 
 	const saveUserInfo = (userInfo: UserInfo) => {
-		setUserInfo(userInfo)
-		setIsProfileModalOpen(false)
-		setIsEditing(false)
-	}
+		setUserInfo(userInfo);
+		setIsProfileModalOpen(false);
+		setIsEditing(false);
+	};
     
 	return (
 		<UserContext.Provider
@@ -64,13 +64,13 @@ export function UserProvider({ children }: { children: ReactNode }) {
 		>
 			{children}
 		</UserContext.Provider>
-	)
+	);
 }
 
 export function useUser() {
-	const context = useContext(UserContext)
+	const context = useContext(UserContext);
 	if (context === undefined) {
-		throw new Error('useUser must be used within a UserProvider')
+		throw new Error('useUser must be used within a UserProvider');
 	}
-	return context
+	return context;
 } 

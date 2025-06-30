@@ -1,4 +1,4 @@
-import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
+import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react';
 
 const skyBlueColors = {
   50: { value: '#ebf8ff' },
@@ -11,7 +11,7 @@ const skyBlueColors = {
   700: { value: '#2c5282' },
   800: { value: '#2a4365' },
   900: { value: '#1a365d' }, 
-}
+};
 
 const config = defineConfig({
   theme: {
@@ -59,7 +59,7 @@ const config = defineConfig({
       colorPalette: 'primary',
     },
   },
-})
+});
 
-const system = createSystem(defaultConfig, config)
-export default system 
+const system = createSystem(defaultConfig, config);
+export default system; 

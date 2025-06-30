@@ -18,7 +18,7 @@ export type Media = {
   description: string | null
   episodes: number | null
   status: string
-  genres: string[]
+  genres: Array<string>
   averageScore: number | null
   popularity: number
   seasonYear: number | null
@@ -36,7 +36,7 @@ export type PageInfo = {
 export type MediaListResponse = {
   Page: {
     pageInfo: PageInfo
-    media: Media[]
+    media: Array<Media>
   }
 }
 
@@ -59,10 +59,10 @@ export type MediaResponse = {
       day: number
     } | null
     studios: {
-      nodes: {
+      nodes: Array<{
         id: number
         name: string
-      }[]
+      }>
     }
   }
 }

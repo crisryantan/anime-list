@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { Field, Input } from '@chakra-ui/react'
-import React, { memo } from 'react'
+import { Field, Input } from '@chakra-ui/react';
+import React, { memo } from 'react';
 
 export interface FormFieldProps {
   label: string
@@ -38,4 +38,6 @@ export const FormField = memo(({
       </Field.ErrorText>
     )}
   </Field.Root>
-)) 
+));
+
+FormField.displayName = 'FormField'; 

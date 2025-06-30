@@ -1,6 +1,6 @@
-import { Box, Text, Flex, Badge } from '@chakra-ui/react'
-import { Media } from '@/types/anilist'
-import { TEXT_STYLES } from './styles'
+import { Box, Text, Flex, Badge } from '@chakra-ui/react';
+import { Media } from '@/types/anilist';
+import { TEXT_STYLES } from './styles';
 
 interface InfoBlockProps {
   media: Media
@@ -39,5 +39,5 @@ export const InfoBlock = ({ media }: InfoBlockProps) => {
         <Text {...TEXT_STYLES.bodyText}>Popularity: {media.popularity}</Text>
       </Box>
     </>
-  )
-} 
+  );
+}; 
