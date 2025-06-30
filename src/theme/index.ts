@@ -1,4 +1,4 @@
-import { createSystem, defaultConfig } from '@chakra-ui/react'
+import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
 
 const skyBlueColors = {
   50: { value: '#ebf8ff' },
@@ -13,7 +13,7 @@ const skyBlueColors = {
   900: { value: '#1a365d' }, 
 }
 
-const system = createSystem(defaultConfig, {
+const config = defineConfig({
   theme: {
     tokens: {
       colors: {
@@ -44,60 +44,6 @@ const system = createSystem(defaultConfig, {
         'text-metadata': { value: '{colors.primary.600}' },
       },
     },
-    components: {
-      Button: {
-        defaultProps: {
-          colorScheme: 'primary',
-        },
-      },
-      Heading: {
-        baseStyle: {
-          color: 'text-headings',
-        },
-      },
-      Text: {
-        baseStyle: {
-          color: 'text-primary',
-        },
-        variants: {
-          secondary: {
-            color: 'text-secondary',
-          },
-          muted: {
-            color: 'text-muted',
-          },
-          metadata: {
-            color: 'text-metadata',
-            fontSize: 'sm',
-          },
-          emphasis: {
-            color: 'text-emphasis',
-            fontWeight: 'bold',
-          },
-        },
-      },
-      Badge: {
-        variants: {
-          solid: {
-            bg: 'primary.500',
-            color: 'white',
-          },
-          subtle: {
-            bg: 'primary.50',
-            color: 'text-primary',
-          },
-        },
-        defaultProps: {
-          colorScheme: 'primary',
-        },
-      },
-      Card: {
-        baseStyle: {
-          bg: 'white',
-          borderColor: 'primary.100',
-        },
-      },
-    },
   },
   globalCss: {
     body: {
@@ -110,9 +56,10 @@ const system = createSystem(defaultConfig, {
       },
     },
     'button[data-theme]': {
-      colorScheme: 'primary',
+      colorPalette: 'primary',
     },
   },
 })
 
+const system = createSystem(defaultConfig, config)
 export default system 
