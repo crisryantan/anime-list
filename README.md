@@ -1,6 +1,6 @@
 # Anime List
 
-A modern web application built with Next.js that allows users to browse, search, and discover anime using the AniList GraphQL API.
+A modern web application built with Next.js that allows users to browse, search, and discover anime using the AniList GraphQL API. To view this live via Vercel, go to this [link](https://anime-list-five-mocha.vercel.app/)
 
 ## Features
 
