@@ -37,7 +37,7 @@ export const MediaCard = ({ media, onClick }: MediaCardProps) => {
   return (
     <Card.Root
       w="full"
-      maxW="300px"
+      maxW="400px"
       borderWidth="1px"
       borderColor="primary.100"
       borderRadius="lg"

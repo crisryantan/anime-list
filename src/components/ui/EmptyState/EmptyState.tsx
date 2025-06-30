@@ -18,6 +18,9 @@ export function EmptyState({ message = 'No items found. Try changing your search
       borderColor="blue.300"
       role="alert"
       aria-live="polite"
+      display="flex"
+      alignItems="center"
+      gap={2}
     >
       <Text>{message}</Text>
     </Box>

@@ -15,8 +15,8 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SearchBar } from '@/components/ui/SearchBar';
 import { MediaGrid } from '@/components/ui/MediaGrid';
+import { MediaGridSkeleton } from '@/components/ui/MediaGridSkeleton';
 import { PaginationControls } from '@/components/ui/PaginationControls';
-import { LoadingState } from '@/components/ui/LoadingState';
 import { ErrorState } from '@/components/ui/ErrorState';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { MediaDetailDialog } from '@/components/ui/MediaDetailDialog';
@@ -72,7 +72,7 @@ export function InformationPage() {
   
   const renderContent = () => {
     if (loading) {
-      return <LoadingState />;
+      return <MediaGridSkeleton />;
     }
     
     if (error) {
@@ -111,7 +111,7 @@ export function InformationPage() {
       <Box minH="100vh" display="flex" flexDirection="column" bg="primary.50">
         <Header />
         <Box flex="1">
-          <Container maxW="100%" py={{ base: 4, md: 8 }} padding={8}>
+          <Container maxW="100%" py={{ base: 2, md: 6 }} px={{ base: 3, md: 8 }}>
             <SearchBar 
               searchTerm={inputSearchTerm}
               onSearchChange={handleSearchChange}

@@ -9,8 +9,6 @@ import {
 import { Media } from '@/types/anilist';
 import { useMemo, useEffect } from 'react';
 
-import { useLockBodyScroll } from '@/hooks/useLockBodyScroll';
-
 import { DIALOG_STYLES, LAYOUT_STYLES } from './styles';
 
 import {
@@ -33,9 +31,7 @@ export const formatDescription = (html: string): string => {
 }; 
 
 export const MediaDetailDialog = ({ media, isOpen, onClose }: MediaDetailDialogProps) => {
-  // Prevents body scrolling when the dialog is open
-  useLockBodyScroll(isOpen);
-  
+
   const formattedDescription = useMemo(() => {
     return formatDescription(media?.description || '');
   }, [media?.description]);

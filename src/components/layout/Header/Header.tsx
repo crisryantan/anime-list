@@ -2,6 +2,7 @@
 
 import { Box, Flex, Button, Text } from '@chakra-ui/react';
 import { useUser } from '@/context/User';
+import Link from 'next/link';
 
 export function Header() {
 	const { userInfo, openProfileModal, isLoading } = useUser();
@@ -13,7 +14,9 @@ export function Header() {
 	return (
         <Box as="header" bg="primary.50" borderBottom="1px" borderColor="primary.100" boxShadow="sm" py={4} role="banner">
           <Flex maxW="container.xl" mx="auto" px={4} justify="space-between" align="center">
-              <Text as="h1" fontWeight="bold" fontSize="xl" color="text-primary">Anime List</Text>
+              <Link href="/" style={{ textDecoration: 'none' }}>
+                <Text as="h1" fontWeight="bold" fontSize="xl" color="text-primary" cursor="pointer">Anime List</Text>
+              </Link>
               <Flex align="center" gap={4} as="nav" role="navigation">
                 {userInfo.username && (
                     <Box alignItems="center">

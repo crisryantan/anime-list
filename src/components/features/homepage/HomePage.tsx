@@ -11,9 +11,11 @@ import { UserGate } from '@/components/features/auth';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { useRouter } from 'next/navigation';
+import { useUser } from '@/context/User';
 
 export function HomePage() {
   const router = useRouter();
+  const { userInfo } = useUser();
   
   const goToInformationPage = () => {
     router.push('/information');
@@ -23,34 +25,33 @@ export function HomePage() {
     <UserGate>
       <Box minH="100vh" display="flex" flexDirection="column" bg="primary.50">
         <Header />
-        <Box flex="1" display="flex" alignItems="center" justifyContent="center">
-          <Container maxW="container.xl" py={{ base: 4, md: 8 }}>
+        <Box flex="1" pt="20px">
+          <Container maxW="container.xl" py={{ base: 2, md: 4 }}>
             <Flex
               direction="column"
               align="center"
-              justify="center"
-              minH={{ base: "unset", md: "calc(100vh - 180px)" }}
-              gap={8}
+              justify="flex-start"
               w="full"
+              px={4}
             >
               <Box
                 textAlign="center"
-                py={{ base: 8, md: 12 }}
+                px={{ base: 3, md: 8 }}
+                py={{ base: 6, md: 12 }}
                 maxW="800px"
                 w={{ base: "100%", md: "auto" }}
                 bg="white"
                 borderRadius="xl"
                 boxShadow="md"
-                px={{ base: 4, md: 8 }}
                 borderWidth="1px"
                 borderColor="primary.100"
                 mx="auto"
               >
-                <Text fontSize={{ base: "lg", md: "xl" }} color="text-secondary" mb={10}>
-                  You have successfully signed in
+                <Text fontSize={{ base: "lg", md: "xl" }} color="text-secondary" mb={2}>
+                  You have successfully signed in as {userInfo.username} - {userInfo.jobTitle}
                 </Text>
 
-                <Flex direction="column" gap={6} align="center">
+                <Flex direction="column" gap={4} align="center">
                   <Text color="text-muted">
                     Check out our anime and manga collection using AniList GraphQL API
                   </Text>
