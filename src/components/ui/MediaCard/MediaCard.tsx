@@ -78,7 +78,13 @@ export const MediaCard = ({ media, onClick }: MediaCardProps) => {
 
         <HStack mb={2} gap={1}>
           {media.genres?.slice(0, 2).map((genre) => (
-            <Badge key={genre} fontSize="xs" colorScheme="gray">
+            <Badge
+              key={genre}
+              fontSize="xs" 
+              colorScheme="primary" 
+              bg="primary.50" 
+              color="primary.700"
+            >
               {genre}
             </Badge>
           ))}
