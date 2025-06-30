@@ -29,7 +29,7 @@ export function HomePage() {
               direction="column"
               align="center"
               justify="center"
-              minH={{ base: "unset", md: "calc(100vh - 120px)" }}
+              minH={{ base: "unset", md: "calc(100vh - 180px)" }}
               gap={8}
               w="full"
             >
